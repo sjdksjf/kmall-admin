@@ -1,18 +1,19 @@
-.login{
-	height: 300px;
-	width: 220px;
-	margin: 100px auto;
-	box-shadow: 0px 3px;
-	background: rgba(0,0,0,0.8); 
+/*
+* @Author: Tom
+* @Date:   2018-08-23 16:57:51
+* @Last Modified by:   Tom
+* @Last Modified time: 2018-08-23 17:28:45
+*/
+.Login {
+	width: 300px;
+	margin: 150px auto;
 }
-
-.login .login-form{
-	width: 200px;
-    margin: 10px;
+.Login .login-form {
+	background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px;
 }
-.login .login-form-button{
+.Login .login-form-button{
 	width: 100%;
-}
-.login .userName-i{
-	margin-top: 20px;
 }
