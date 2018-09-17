@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-27 15:19:33
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-09-03 17:11:31
-*/
+
 import React,{ Component } from 'react';
 import { Link} from 'react-router-dom';
 import { connect } from 'react-redux'

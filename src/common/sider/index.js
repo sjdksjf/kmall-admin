@@ -34,6 +34,9 @@ class MySider extends Component{
 		            <Menu.Item key="4">
 		            	<NavLink to="/product"><Icon type="book" />商品管理</NavLink>
 		            </Menu.Item>
+		            <Menu.Item key="5">
+		            	<NavLink to="/order"><Icon type="shop" />订单管理</NavLink>
+		            </Menu.Item>
 		         </Menu>
 		      </Sider>
 			</div>

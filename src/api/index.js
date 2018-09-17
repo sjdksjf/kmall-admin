@@ -28,4 +28,4 @@ export const GET_PRODUCT_DETAIL = SERVER + 'product/detail'
 export const SEARCH_PRODUCTS = SERVER + 'product/search'
 
 
-
+export const GET_ORDERS = SERVER + 'order'

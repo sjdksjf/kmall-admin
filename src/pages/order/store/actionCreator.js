@@ -4,7 +4,7 @@ import { message } from 'antd';
 import { request } from 'util'
 import { 
 	SAVE_PRODUCT,
-	GET_PRODUCTS,
+	GET_ORDERS,
 	UPDATE_PRODUCT_ORDER,
 	UPDATE_PRODUCT_STATUS,
 	GET_PRODUCT_DETAIL,
@@ -68,58 +68,6 @@ const setImagesError = ()=>({
 	type:types.SET_IMAGES_ERROR
 })
 
-//新增和编辑处理
-export const getSaveAction = (err,values)=>{
-	return (dispatch,getState)=>{
-		const state = getState().get('product');
-		const  categoryId = state.get('categoryId');
-		const  images = state.get('images');
-		var variable = false;
-		if(!categoryId){
-			dispatch(setCategoryError())
-			variable = true
-		}
-		if(!images){
-			dispatch(setImagesError())
-			variable = true
-		}
-		if(variable){
-			return
-		}
-		if(err){
-			return;
-		}
-		//新增处理
-		let method = 'post';
-		//编辑处理
-		if(values.id){
-			method = 'put';
-		}
-
-		dispatch(getSaveRequstAction())
-        request({
-			method: method,
-			url: SAVE_PRODUCT,
-			data: {
-				...values,
-				category:categoryId,
-				images:state.get('images'),
-				detail:state.get('detail')
-			}
-		})
-		.then((result)=>{
-			if(result.code == 0){
-				message.success(result.message)
-				window.location.href = '/product'
-			}
-			dispatch(getSaveDoneAction())
-		})
-		.catch((err)=>{
-			message.error('网络错误,请稍后在试!')
-			dispatch(getSaveDoneAction())				
-		})
-	}
-}
 
 
 export const getPageAction = (page)=>{
@@ -127,7 +75,7 @@ export const getPageAction = (page)=>{
 		dispatch(getPageRequstAction());
         request({
 			method: 'get',
-			url: GET_PRODUCTS,
+			url: GET_ORDERS,
 			data: {
 				page:page
 			}
@@ -147,30 +95,7 @@ export const getPageAction = (page)=>{
 	}	
 }
 
-export const getUpdateOrderAction = (id,newOrder)=>{
-	return (dispatch,getState)=>{
-		const state = getState().get('product');
-        request({
-			method: 'put',
-			url: UPDATE_PRODUCT_ORDER,
-			data: {
-				id:id,
-				order:newOrder,
-				page:state.get('current')
-			}
-		})
-		.then((result)=>{
-			if(result.code == 0){
-				dispatch(getSetPageAction(result.data))
-			}else{
-				message.error(result.message)
-			}
-		})
-		.catch((err)=>{
-			message.error('网络错误,请稍后在试!')
-		})
-	}	
-}
+
 export const getUpdateStatusAction = (id,newStatus)=>{
 	return (dispatch,getState)=>{
 		const state = getState().get('product');

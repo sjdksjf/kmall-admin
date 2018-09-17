@@ -16,6 +16,7 @@ import {
 import Login from 'pages/login'
 import Home from 'pages/home'
 import User from 'pages/user'
+import Order from 'pages/order'
 import Category from 'pages/category'
 import Product from 'pages/product'
 import ErrorPage from 'common/error-page'
@@ -28,6 +29,7 @@ import './App.css';
 
 class App extends Component{
 	render(){
+		//只有登陆的用户才能访问
 		const ProtectedRoute = ({component:Component,...rest})=>(
 			<Route 
 				{...rest}
@@ -50,11 +52,12 @@ class App extends Component{
 		return(
 			<Router forceRefresh={true}>
 				<div className="App">
-					<Switch>
+					<Switch> 
 						<ProtectedRoute exact path="/" component={ Home } />				
 						<ProtectedRoute path="/user" component={ User } />				
 						<ProtectedRoute path="/category" component={ Category } />				
-						<ProtectedRoute path="/product" component={ Product } />				
+						<ProtectedRoute path="/product" component={ Product } />
+						<ProtectedRoute path="/order" component={ Order } />				
 						<LoginRoute path="/login" component={ Login } />
 						<Route component={ ErrorPage }  />
 					</Switch>	
