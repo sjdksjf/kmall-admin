@@ -1,3 +1,4 @@
+
 import React,{ Component } from 'react';
 import { Switch,Route } from 'react-router-dom';
 
@@ -8,8 +9,8 @@ class Order extends Component{
 	render(){
 		return(
 			<Switch>
-				<Route path="/Order/detail/:orderOn" component={ OrderDetail } />
-				<Route path="/Order" component={ OrderList } />
+				<Route path="/order/detail/:orderNo" component={ OrderDetail } />
+				<Route path="/order" component={ OrderList } />
 			</Switch>
 		)
 	}

@@ -1,9 +1,4 @@
-/*
-* @Author: Tom
-* @Date:   2018-08-23 16:46:38
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-27 16:18:49
-*/
+
 import React,{ Component } from 'react';
 import { connect } from 'react-redux'
 import { Form, Icon, Input, Button,message } from 'antd';

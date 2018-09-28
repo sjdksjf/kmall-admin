@@ -22,11 +22,13 @@ class ProductList extends Component{
 			  title: 'id',
 			  dataIndex: 'id',
 			  key: 'id',
+			  width:250,
 			}, 
 			{
 			  title: '商品名称',
 			  dataIndex: 'name',
 			  key: 'name',
+			  width:350,
 			  render:(name)=>{
 			  	if(keyword){
 			  		let reg = new RegExp("("+keyword+")",'ig');

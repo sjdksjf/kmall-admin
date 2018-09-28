@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-24 17:02:20
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-25 11:42:22
-*/
+
 import React,{ Component } from 'react';
 import { Layout, Menu,Icon } from 'antd';
 import { NavLink } from 'react-router-dom';
@@ -36,7 +31,7 @@ class MySider extends Component{
 		            </Menu.Item>
 		            <Menu.Item key="5">
 		            	<NavLink to="/order"><Icon type="shop" />订单管理</NavLink>
-		            </Menu.Item>
+		            </Menu.Item>		            
 		         </Menu>
 		      </Sider>
 			</div>

@@ -3,7 +3,9 @@ import React,{ Component } from 'react';
 import { Link} from 'react-router-dom';
 import { connect } from 'react-redux'
 
-import { Breadcrumb,Button,Table,Divider,InputNumber,Modal,Input,Switch } from 'antd';
+import moment from 'moment';
+
+import { Breadcrumb,Button,Table,Input } from 'antd';
 import { actionCreator } from './store'
 import Layout from 'common/layout'
 const Search = Input.Search;
@@ -22,6 +24,7 @@ class OrderList extends Component{
 			  title: '订单号',
 			  dataIndex: 'orderNo',
 			  key: 'orderNo',
+			  width:250,
 			  render:(orderNo)=>{
 			  	if(keyword){
 			  		let reg = new RegExp("("+keyword+")",'ig');
@@ -30,30 +33,35 @@ class OrderList extends Component{
 			  	}else{
 			  		return orderNo;
 			  	}
-			  }
+			  }			  
 			}, 
 			{
 			  title: '收件人',
 			  dataIndex: 'name',
 			  key: 'name',
+			  width:350,
 			},
 			{
-			  title: '支付金额',
-			  dataIndex: 'prement',
-			  key: 'prement',
-			},
-			{
-			  title: '支付状态',
-			  dataIndex: 'status',
-			  key: 'status',
+			  title: '订单状态',
+			  dataIndex: 'statusDesc',
+			  key: 'statusDesc',
 			},			
-		
+			{
+			  title: '订单金额',
+			  dataIndex: 'payment',
+			  key: 'payment'
+			},
+			{
+			  title: '创建时间',
+			  dataIndex: 'createdAt',
+			  key: 'createdAt'
+			},			
 			{
 				title: '操作',
 				key: 'action',
-				render: ( record) => (
+				render: (text, record) => (
 					<span>
-						<Link to={"/product/detail/"+record.id}>
+						<Link to={"/order/detail/"+record.orderNo}>
 						  	查看
 						</Link>
 					</span>
@@ -63,10 +71,11 @@ class OrderList extends Component{
 		const data  = this.props.list.map((order)=>{
 			return {
 				key:order.get('orderNo'),
-				id:order.get('orderNo'),
-				name:order.get('order').get('name'),
-				prement:order.get('prement'),
-				status:order.get('status')
+				orderNo:order.get('orderNo'),
+				name:order.get('shipping').get('name'),
+				statusDesc:order.get('statusDesc'),
+				payment:"￥"+order.get('payment'),
+				createdAt:moment(order.get('createdAt')).format('YYYY-MM-DD HH:mm:ss') 
 			}
 		}).toJS();		
 		return(
@@ -79,13 +88,12 @@ class OrderList extends Component{
 					<div style={{marginTop:10}} className="clearfix">
 						<Search 
 							style={{ width: 300 }}
-							placeholder="请输入订单号"
+							placeholder="输入订单号"
 							enterButton
 							onSearch={value => {
 								this.props.handleSearch(value)
 							}}
 						/>
-
 					</div>
 					<Table 
 						dataSource={data} 
@@ -98,6 +106,14 @@ class OrderList extends Component{
 								pageSize:this.props.pageSize
 							}
 						}
+						onChange = {(pagination)=>{
+							if(keyword){
+								this.props.handleSearch(keyword,pagination.current)
+							}else{
+								this.props.handlePage(pagination.current)	
+							}
+							
+						}}
 						loading={
 							{
 								spinning:this.props.isPageFetching,
@@ -126,12 +142,6 @@ const mapDispatchToProps = (dispatch)=>{
 	return{
 		handlePage:(page)=>{
 			dispatch(actionCreator.getPageAction(page));
-		},
-		handleOrder:(id,newOrder)=>{
-			dispatch(actionCreator.getUpdateOrderAction(id,newOrder));
-		},
-		handleStatus:(id,newStatus)=>{
-			dispatch(actionCreator.getUpdateStatusAction(id,newStatus));
 		},
 		handleSearch:(keyword,page)=>{
 			dispatch(actionCreator.getSearchAction(keyword,page));

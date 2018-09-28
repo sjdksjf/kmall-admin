@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-24 16:09:28
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-09-03 16:34:51
-*/
+
 
 const SERVER = 'http://127.0.0.1:3000/';
 
@@ -27,5 +22,8 @@ export const UPDATE_PRODUCT_STATUS = SERVER + 'product/updateStatus'
 export const GET_PRODUCT_DETAIL = SERVER + 'product/detail'
 export const SEARCH_PRODUCTS = SERVER + 'product/search'
 
-
 export const GET_ORDERS = SERVER + 'order'
+export const SEARCH_ORDERS = SERVER + 'order/search'
+export const GET_ORDER_DETAIL = SERVER + 'order/detail'
+export const UPDATE_ORDER_DELIVER = SERVER + 'order/deliver'
+

@@ -8,6 +8,6 @@ export const PAGE_REQUEST = 'product/PAGE_REQUEST';
 export const PAGE_DONE = 'product/PAGE_DONE';
 export const SET_PAGE = 'product/SET_PAGE';
 export const SET_CATEGORY_ERROR = 'product/SET_CATEGORY_ERROR';
-export const SET_IMAGES_ERROR   = 'product/SET_IMAGES_ERROR';
+export const SET_IMAGES_ERROR = 'product/SET_IMAGES_ERROR';
 export const SET_PRODUCT_DETAIL = 'product/SET_PRODUCT_DETAIL';
 

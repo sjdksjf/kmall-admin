@@ -3,46 +3,14 @@ import { message } from 'antd';
 
 import { request } from 'util'
 import { 
-	SAVE_PRODUCT,
 	GET_ORDERS,
-	UPDATE_PRODUCT_ORDER,
-	UPDATE_PRODUCT_STATUS,
-	GET_PRODUCT_DETAIL,
-	SEARCH_PRODUCTS 
+	GET_ORDER_DETAIL,
+	SEARCH_ORDERS,
+	UPDATE_ORDER_DELIVER 
 } from 'api'
 
 import * as types from './actionTypes.js'
 
-export const getSetCategoryAction = (parentCategoryId,categoryId)=>({
-	type:types.SET_CATEGORY,
-	payload:{
-		parentCategoryId,
-		categoryId
-	}
-})
-export const getSetImagesAction = (fileList)=>({
-	type:types.SET_IMAGES,
-	payload:fileList
-})
-export const getSetDetailAction = (value)=>({
-	type:types.SET_DETAIL,
-	payload:value
-})
-
-
-
-
-const getSaveRequstAction = ()=>{
-	return {
-		type:types.SAVE_REQUEST
-	}
-}
-
-const getSaveDoneAction = ()=>{
-	return {
-		type:types.SAVE_DONE
-	}
-}
 
 const getPageRequstAction = ()=>{
 	return {
@@ -61,13 +29,6 @@ const getSetPageAction = (payload)=>{
 		payload
 	}
 }
-const setCategoryError = ()=>({
-	type:types.SET_CATEGORY_ERROR
-})
-const setImagesError = ()=>({
-	type:types.SET_IMAGES_ERROR
-})
-
 
 
 export const getPageAction = (page)=>{
@@ -95,50 +56,22 @@ export const getPageAction = (page)=>{
 	}	
 }
 
-
-export const getUpdateStatusAction = (id,newStatus)=>{
-	return (dispatch,getState)=>{
-		const state = getState().get('product');
-        request({
-			method: 'put',
-			url: UPDATE_PRODUCT_STATUS,
-			data: {
-				id:id,
-				status:newStatus,
-				page:state.get('current')
-			}
-		})
-		.then((result)=>{
-			if(result.code == 0){
-				message.success(result.message)
-			}else{
-				message.error(result.message)
-				dispatch(getSetPageAction(result.data))
-			}
-		})
-		.catch((err)=>{
-			message.error('网络错误,请稍后在试!')
-		})
-	}	
-}
-
-
-const setProductDetail = (payload)=>({
-	type:types.SET_PRODUCT_DETAIL,
+const setOrderDetail = (payload)=>({
+	type:types.SET_ORDER_DETAIL,
 	payload
 })
-export const getProductDetailAction = (productId)=>{
+export const getOrderDetailAction = (orderNo)=>{
 	return (dispatch)=>{
         request({
 			method: 'get',
-			url: GET_PRODUCT_DETAIL,
+			url: GET_ORDER_DETAIL,
 			data: {
-				id:productId,
+				orderNo:orderNo,
 			}
 		})
 		.then((result)=>{
 			if(result.code == 0){
-				dispatch(setProductDetail(result.data))
+				dispatch(setOrderDetail(result.data))
 			}
 		})
 		.catch((err)=>{
@@ -146,11 +79,12 @@ export const getProductDetailAction = (productId)=>{
 		})
 	}	
 }
+
 export const getSearchAction = (keyword,page=1)=>{
 	return (dispatch)=>{
         request({
 			method: 'get',
-			url: SEARCH_PRODUCTS,
+			url: SEARCH_ORDERS,
 			data: {
 				keyword,
 				page
@@ -168,4 +102,25 @@ export const getSearchAction = (keyword,page=1)=>{
 		})
 	}	
 }
+
+export const getOrderDeliverAction = (orderNo)=>{
+	return (dispatch)=>{
+        request({
+			method: 'put',
+			url: UPDATE_ORDER_DELIVER,
+			data: {
+				orderNo:orderNo,
+			}
+		})
+		.then((result)=>{
+			if(result.code == 0){
+				dispatch(setOrderDetail(result.data))
+			}
+		})
+		.catch((err)=>{
+			message.error('网络错误,请稍后在试!')
+		})
+	}	
+}
+
 

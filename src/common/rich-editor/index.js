@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-31 10:49:51
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-09-03 15:09:38
-*/
+
 import React,{ Component } from 'react';
 
 import Simditor from 'simditor';

@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-24 17:02:20
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-25 10:48:06
-*/
+
 import React,{ Component } from 'react';
 import { Layout,Menu, Dropdown, Icon } from 'antd';
 

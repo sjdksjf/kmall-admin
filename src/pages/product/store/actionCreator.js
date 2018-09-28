@@ -67,24 +67,24 @@ const setCategoryError = ()=>({
 const setImagesError = ()=>({
 	type:types.SET_IMAGES_ERROR
 })
-
 //新增和编辑处理
 export const getSaveAction = (err,values)=>{
 	return (dispatch,getState)=>{
 		const state = getState().get('product');
+		//自定义验证分类ID
 		const  categoryId = state.get('categoryId');
 		const  images = state.get('images');
-		var variable = false;
+		let hasError = false;
 		if(!categoryId){
 			dispatch(setCategoryError())
-			variable = true
+			hasError = true;
 		}
 		if(!images){
 			dispatch(setImagesError())
-			variable = true
+			hasError = true;
 		}
-		if(variable){
-			return
+		if(hasError){
+			return;
 		}
 		if(err){
 			return;

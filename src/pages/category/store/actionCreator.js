@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-24 14:39:19
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-30 11:02:12
-*/
+
 import { message } from 'antd';
 
 import { request } from 'util'

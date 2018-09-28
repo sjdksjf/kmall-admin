@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-20 09:14:30
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-21 09:19:08
-*/
+
 import { createStore,applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger'

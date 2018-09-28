@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-27 15:19:33
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-28 14:44:48
-*/
+
 import React,{ Component } from 'react';
 import { Switch,Route } from 'react-router-dom';
 

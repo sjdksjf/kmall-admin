@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-25 09:23:39
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-25 09:38:06
-*/
+
 import React,{ Component } from 'react';
 import { Layout } from 'antd';
 

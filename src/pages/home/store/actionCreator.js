@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-24 14:39:19
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-25 15:18:03
-*/
+
 import { message } from 'antd';
 
 import { request,setUserName } from 'util'

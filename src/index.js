@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-16 16:55:36
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-21 09:51:14
-*/
+
 //用React的语法解析文件
 import React from 'react'; // const React = require('react')
 

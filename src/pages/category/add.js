@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-27 15:19:33
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-30 14:42:49
-*/
+
 import React,{ Component } from 'react';
 import { Breadcrumb,Form, Input,Select,Button } from 'antd';
 import { connect } from 'react-redux'

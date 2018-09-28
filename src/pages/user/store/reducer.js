@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-20 09:18:25
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-28 15:48:40
-*/
+
 import { fromJS } from 'immutable'
 
 import * as types from './actionTypes.js'

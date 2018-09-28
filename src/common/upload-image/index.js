@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-30 17:15:26
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-09-03 10:07:59
-*/
+
 import React,{ Component } from 'react';
 import { Upload, Icon, Modal } from 'antd';
 

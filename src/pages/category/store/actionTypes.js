@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-24 14:50:05
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-30 09:49:22
-*/
+
 export const ADD_REQUEST = 'category/ADD_REQUEST';
 export const ADD_DONE = 'category/ADD_DONE';
 export const SET_LEVEL_ONE_CATEGORIES = 'category/SET_LEVEL_ONE_CATEGORIES';

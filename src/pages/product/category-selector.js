@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-30 15:13:21
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-09-03 15:28:12
-*/
+
 import React,{ Component } from 'react';
 import { Select } from 'antd';
 

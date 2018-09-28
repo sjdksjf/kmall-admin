@@ -12,7 +12,7 @@ const defaultState = fromJS({
 	categoryIdValidateStatus:'',
 	categoryIdHelp:'',
 	imagesValidateStatus:'',
-	imagesHelp:'',
+	imagesHelp:'',	
 	isPageFetching:false,
 	current:0,
 	total:0,
@@ -38,12 +38,11 @@ export default (state=defaultState,action)=>{
 	}
 	if(action.type === types.SET_IMAGES){
 		return state.merge({
-			images:action.payload,
+			'images':action.payload,
 			imagesValidateStatus:'',
-			imagesHelp:'',	
+			imagesHelp:''			
 		})
 	}
-
 	if(action.type === types.SET_DETAIL){
 		return state.set('detail',action.payload)
 	}
@@ -53,14 +52,14 @@ export default (state=defaultState,action)=>{
 			categoryIdValidateStatus:'error',
 			categoryIdHelp:'请选择所属分类',			
 		})
-	}  
+	}
+	
 	if(action.type === types.SET_IMAGES_ERROR){
 		return state.merge({
 			imagesValidateStatus:'error',
-			imagesHelp:'请至少上传一张图片',			
+			imagesHelp:'请上传图片',			
 		})
 	}
-
 	if(action.type === types.SAVE_REQUEST){
 		return state.set('isSaveFetching',true)
 	}
